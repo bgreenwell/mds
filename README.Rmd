@@ -1,0 +1,53 @@
+# mds: R Tools for Working with Mission Design Series
+
+Mission Design Series (MDS) refer to the three main parts of the designation that combine to form a unique profile for each USAF vehicle. The first series of letters (up to four) determine the type of craft and designed mission. A series number identifies major types which are of the same type and mission, and finally a series of variant and block identifiers clarify the exact configuration of the vehicle. The R package `mds` provides various tools for working with these codes (e.g., detecting invalid codes and standardization).
+
+## Installation
+Package `mds` is not currently available from CRAN, but the development version is hosted on GitHub at https://github.com/bgreenwell/mds and can be installed using [`devtools`](https://github.com/hadley/devtools):
+```r
+# Assuming devtools is already installed
+devtools::install_github("bgreenwell/mds")
+```
+Bug reports should be submitted to https://github.com/bgreenwell/mds/issues.
+
+## Current functions
+
+The following functions are currently available:
+
+  * `add_hyphen` - adds a hyphen to each MDS. For example, `"F16"` would become `"F-16"`.   
+  * `get_mds_components` - extracts the six components from an MDS
+  * `is_invalid_mds` - returns `TRUE` for each __invalid__ MDS
+  * `is_valid_mds` - returns `TRUE` for each __valid__ MDS
+  * `standardize_mds` - strips leading zeros and forces/removes all hyphens
+  * `strip_hyphen` - removes the hyphen from each MDS. For example, `"F-16"` would become `"F16"`.
+  * `strip_leading_zeros` - removes leading zeros from the design number of each MDS. For example, `"F016"` would become `"F16"`.
+
+## Basic usage
+
+```{r}
+# Required packages
+library(mds)
+
+# Regular expression for MDS
+print(MDS_REGEX)
+
+# Example vector of MDS values
+mds <- c("YEH-60B", "YEH-60B1", "AYEH-60B", "F-16A", "F16", "F016", "YRAH-66A")
+
+# Check which ones are valid
+is_valid_mds(mds)
+
+# Clean up a bit
+mds %>%
+  strip_leading_zeros %>%
+  strip_hyphen
+
+# Alternatively
+standardize_mds(mds, hyphen = FALSE)
+
+# Default is to make sure each MDS contains a hyphen before the design number
+standardize_mds(mds)
+
+# Extract all components
+plyr::ldply(mds, get_mds_components)
+```
