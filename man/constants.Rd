@@ -31,7 +31,15 @@ Constants defining various regular expressions related to the various
 components of a mission design series (MDS).
 }
 \details{
-Coming soon!
+A basic MDS should contain (at least) six components:
+  \enumerate{
+    \item{Vehicle type}
+    \item{}
+    \item{}
+    \item{}
+    \item{}
+    \item{}
+  }
 }
 \keyword{datasets}
 

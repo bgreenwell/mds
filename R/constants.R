@@ -5,7 +5,16 @@
 #'
 #' @rdname constants
 #' @details
-#' Coming soon!
+#' A basic MDS should contain (at least) six components:
+#'   \enumerate{
+#'     \item{Vehicle type}
+#'     \item{}
+#'     \item{}
+#'     \item{}
+#'     \item{}
+#'     \item{}
+#'   }
+#' The components are actually presented in the order (6)(3)(2)(1)-(4)(5).
 #' @export
 VEHICLE_TYPE <- "[DGHQSVZ]"
 
