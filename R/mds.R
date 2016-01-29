@@ -35,6 +35,20 @@ is_invalid_mds <- function(x, ...) {
 
 #' @rdname mds
 #' @export
+get_valid_mds <- function(x, ...) {
+  grep(MDS_REGEX, x, value = TRUE, ...)
+}
+
+
+#' @rdname mds
+#' @export
+get_invalid_mds <- function(x, ...) {
+  grep(paste0("!", MDS_REGEX), x, value = TRUE, ...)
+}
+
+
+#' @rdname mds
+#' @export
 add_hyphen <- function(x, ...) {
   gsub('^([A-Z]+)([0-9]+)', '\\1-\\2', x, ...)
 }
