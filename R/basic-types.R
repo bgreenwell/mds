@@ -5,6 +5,13 @@
 #' @param x A character vector.
 #' @param ... Additional optional arguments to be passed onto \code{grepl}.
 #'
+#' @details
+#' The \code{is_Y} function returns TRUE if \code{x} includes the basic mission 
+#' symbol \code{Y}, otherwise it returns FALSE. 
+#' 
+#' The function \code{get_basic_mission} will extract and return the basic 
+#' mission symbol, if any.
+#'
 #' @rdname basic-type
 #' @export
 is_ground_attack <- function(x, ...) {
@@ -51,4 +58,17 @@ is_multi_mission <- function(x, ...) {
 #' @export
 is_trainer <- function(x, ...) {
   grepl("T[DGHQSVZ]?-?[0-9]{1,3}[ABCDEFGHJKLMNPQRSTUVWXYZ]*", x, ...)
+}
+
+
+#' @rdname basic-type
+#' @export
+get_bassic_mission <- function(x, ...) {
+  ifelse(is_ground_attack(x, ...), "A", 
+  ifelse(is_bomber(x, ...), "B", 
+  ifelse(is_transport(x, ...), "C", 
+  ifelse(is_fighter(x, ...), "F",
+  ifelse(is_tanker(x, ...), "K",
+  ifelse(is_multi_mission(x, ...), "M",
+  ifelse(is_trainer(x, ...), "T", "other")))))))
 }
