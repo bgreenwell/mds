@@ -6,8 +6,8 @@
 #' @param ... Additional optional arguments to be passed onto \code{grepl}.
 #'
 #' @details
-#' The \code{is_Y} function returns TRUE if \code{x} includes the basic mission 
-#' symbol \code{Y}, otherwise it returns FALSE. 
+#' The \code{is_Y} functions return TRUE if \code{x} includes the basic mission 
+#' symbol \code{Y}, and FALSE otherwise. 
 #' 
 #' The function \code{get_basic_mission} will extract and return the basic 
 #' mission symbol, if any.
