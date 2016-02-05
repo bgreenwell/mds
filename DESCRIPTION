@@ -9,8 +9,7 @@ Description: R tools for working with mission design series (MDS).
 Depends:
     base
 Imports:
-    magrittr,
-    stringr
+    magrittr
 Suggests:
     plyr,
     testthat

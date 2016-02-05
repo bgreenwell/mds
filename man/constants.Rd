@@ -40,6 +40,7 @@ A basic MDS should contain (at least) six components:
     \item{}
     \item{}
   }
+The components are actually presented in the order (6)(3)(2)(1)-(4)(5).
 }
 \keyword{datasets}
 

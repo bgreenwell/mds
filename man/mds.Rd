@@ -2,6 +2,8 @@
 % Please edit documentation in R/mds.R
 \name{is_valid_mds}
 \alias{add_hyphen}
+\alias{get_invalid_mds}
+\alias{get_valid_mds}
 \alias{is_invalid_mds}
 \alias{is_valid_mds}
 \alias{standardize_mds}
@@ -12,6 +14,10 @@
 is_valid_mds(x, ...)
 
 is_invalid_mds(x, ...)
+
+get_valid_mds(x, ...)
+
+get_invalid_mds(x, ...)
 
 add_hyphen(x, ...)
 
